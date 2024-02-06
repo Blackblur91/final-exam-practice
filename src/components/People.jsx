@@ -9,12 +9,14 @@ function People({ people }) {
   const [peopleData, setPeopleData] = useState(people)
   const [sortBy, setSortBy] = useState ("asc")
 
+  console.log(people)
+
 
   const handleSort = () => {
     setPeopleData([...people]
       .sort((a, b) => sortBy === "asc"
-      ? a.name.localeCompare(b.name) 
-      : b.name.localeCompare(a.name)
+      ? /*a.name.localeCompare(b.name) */   a.height - b.height
+      : /* b.name.localeCompare(a.name) */  b.height - a.height
       ))
       setSortBy(sortBy === "asc" ? "desc" : "asc")
     }
