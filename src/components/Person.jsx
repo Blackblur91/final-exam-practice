@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import Button from '@mui/material/Button';
 
 function Person( {person} ) {
 
@@ -7,7 +7,7 @@ function Person( {person} ) {
 
   return (
     <div>{person.name}
-    <button onClick={() => setShow(show => !show)}>show more</button>
+    <Button variant="outlined" onClick={() => setShow(show => !show)}>show more</Button>
     {show &&
       <>
       {person.height}cm

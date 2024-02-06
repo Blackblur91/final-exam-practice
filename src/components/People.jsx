@@ -1,5 +1,8 @@
 import { useState } from "react"
 import Person from "./Person"
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
 
 function People({ people }) {
   const [searchString, setSearchString] = useState("")
@@ -18,9 +21,9 @@ function People({ people }) {
 
   return (
     <>
-      <input type="text" onChange={e => setSearchString(e.target.value)}/>
+      <TextField variant="outlined" label="Search" onChange={e => setSearchString(e.target.value)}/>
 
-    <button onClick={handleSort}>sort by {sortBy}</button>
+    <Button variant="outlined" onClick={handleSort}>sort by {sortBy}</Button>
 
       {peopleData
         .filter(person => person.name.toLowerCase().includes(searchString.toLowerCase()))
