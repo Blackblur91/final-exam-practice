@@ -18,7 +18,7 @@ useEffect(() => {
     <>
      {people
       ?
-      <People people = {people}/>
+      <People people = {people.results}/>
       :
       <LoadingMask/>
     }
