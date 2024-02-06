@@ -1,10 +1,16 @@
+import { useState } from "react"
 import Person from "./Person"
 
 function People( {people}) {
-  console.log(people)
+  const [searchString, setSearchString] = useState("")
   return (
     <>
-      {people.map((person, index) => <Person key = {index} person = {person}/>)}
+      <input type="text" onChange={e => setSearchString(e.target.value)}/>
+      {people
+        .filter(person => person.name.toLowerCase().includes(searchString.toLowerCase()))
+        .map((person, index) => <Person key = {index} person = {person}/>)}
+
+
     </>
     )
 }
